@@ -3,6 +3,7 @@
     yum:
       name: "{{ influxdb_url }}"
       state: present
-  - service:
+  - name: "Started influxDB"
+    service:
       name: influxdb
       state: started

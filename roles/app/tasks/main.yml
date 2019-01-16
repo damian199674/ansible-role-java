@@ -1,22 +1,22 @@
 ---
-  - name: Ensure Java is installed.
+  - name: "Ensure Java is installed"
     package:
       name: "{{ java }}"
       state: latest
-  - name: Create Folder
+  - name: "Create app folder"
     file: 
       path: /opt/app
       state: directory
       mode: 0755 
-  - name: copy java jar
+  - name: "Copy java jar"
     copy:
        src: ../my-car-renta-spring/target/carrental-0.0.1-SNAPSHOT.jar
        dest: /opt/app
-  - name: copy car_rental.service
+  - name: "Copy car_rental.service"
     template:
        src: car_rental.service
        dest: /etc/systemd/system
-  - name: start car_rental 
+  - name: "Start car_rental" 
     systemd:
       name: car_rental.service
       state: restarted
