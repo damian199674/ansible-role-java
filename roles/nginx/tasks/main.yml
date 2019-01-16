@@ -1,0 +1,17 @@
+---
+  - name: "install extra packages repo"
+    yum: 
+      name: "{{ epel_src }}"
+      state: present
+  - name: Install nginx
+    yum:
+      name: "nginx"
+      state: latest
+  - name: Set Nginx config
+    template:
+      src: app.conf
+      dest: /etc/nginx/conf.d/app.conf
+  - name: Restart NGiNX
+    service:
+      name: nginx
+      state: restarted
