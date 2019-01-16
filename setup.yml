@@ -1,10 +1,15 @@
 ---
-- hosts: proxy
-  become: yes
-  roles:
-    - nginx
+#- hosts: proxy
+#  become: yes
+#  roles:
+#    - nginx
   
-- hosts: app
+#- hosts: app
+#  become: yes
+#  roles:
+#    - telegraf
+  
+- hosts: metrics
   become: yes
   roles:
-    - telegraf
+    - influxDB
