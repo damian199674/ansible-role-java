@@ -3,3 +3,8 @@
   become: yes
   roles:
     - nginx
+  
+- hosts: app
+  become: yes
+  roles:
+    - telegraf
