@@ -7,7 +7,7 @@
     template:
       src: telegraf.conf
       dest: /etc/telegraf/telegraf.conf
-  - name: "Start Telegraf"
+  - name: "restarted Telegraf"
     service:
       name: "telegraf"
       state: restarted

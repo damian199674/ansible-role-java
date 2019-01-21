@@ -1,0 +1,23 @@
+--- 
+  - name: "Created folder"
+    file:
+      path: /tmp/dashboards
+      state: directory
+  - name: "Copy json file"
+    copy:
+      src: influxdb.json
+      dest: /tmp/dashboards/influxdb.json
+  - name: "Create my dashboard"
+    grafana_dashboard:
+      grafana_url: "http://127.0.0.1:8080"
+      grafana_user: "admin"
+      grafana_password: "admin"
+      slug: "apache"
+      state: present
+      overwrite: yes
+      path: /tmp/dashboards/influxdb.json
+  - name: "Restarted grafana"
+    service:
+      name: "grafana-server"
+      state: restarted
+

@@ -4,7 +4,7 @@
   roles:
     - nginx
   
-- hosts: app
+- hosts: application
   become: yes
   roles:
     - telegraf
@@ -15,4 +15,4 @@
   roles:
     - influxDB
     - grafana
-
+    - dashboard

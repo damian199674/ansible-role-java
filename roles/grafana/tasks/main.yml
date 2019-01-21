@@ -11,14 +11,14 @@
     service:
       name: "grafana-server"
       state: started
-  - name: "add any source, in our case influxdb"
+  - name: "Add any source, in our case influxdb"
     grafana_datasource:
       name: "influxdb"
       grafana_url: "http://127.0.0.1:8080"
       grafana_user: "admin"
       grafana_password: "admin"
       org_id: "1"
-      ds_type: "influxdb" 
+      ds_type: "influxdb"
       url: "http://{{metric_store_ip}}:8086"
       database: "metrics"
       is_default: yes
